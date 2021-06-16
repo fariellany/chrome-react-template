@@ -16,6 +16,7 @@
 - [改变](https://cezaraugusto.net/posts/what-changes-in-chrome-extension-manifest-v3/)
 
 - [3.0 文档](https://developer.chrome.com/docs/extensions/mv3/intro/)
+- [2=>3 迁移](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/)
 
 ### 文献
 
