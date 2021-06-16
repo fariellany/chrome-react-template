@@ -1,11 +1,11 @@
 {
-  "name": "chrome-extension-boilerplate-react",
-  "version": "4.0.1",
-  "description": "A chrome extension boilerplate built with React 17 and Webpack 5",
+  "name": "chrome-react-template",
+  "version": "1.0.0",
+  "description": "React 17 + Webpack 5 + Manifest V3+ antd4.x +typescript",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lxieyang/chrome-extension-boilerplate-react.git"
+    "url": "https://github.com/fariellany/chrome-react-template"
   },
   "scripts": {
     "build": "node utils/build.js",
