@@ -17,6 +17,33 @@ const EditableRow = ({ index, ...props }) => {
   );
 };
 
+const list = [
+  {
+    key: 0,
+    src_ip: 'https://developer.daily.tuya-inc.cn/',
+    dest_ip: 'http://localhost:3000',
+    enabled: false
+  },
+  {
+    key: 1,
+    src_ip: 'https://developer.daily.tuya-inc.cn/',
+    dest_ip: 'http://127.0.0.1:3000',
+    enabled: false
+  },
+  {
+    key: 2,
+    src_ip: 'https://developer.wgine.com',
+    dest_ip: 'http://localhost:3000',
+    enabled: true
+  },
+  {
+    key: 3,
+    src_ip: 'https://developer.wgine.com',
+    dest_ip: 'http://127.0.0.1:3000',
+    enabled: true
+  },
+]
+
 const EditableCell = ({
   title,
   editable,
@@ -123,20 +150,7 @@ export default class EditableTable extends React.Component {
       },
     ];
     this.state = {
-      dataSource: [
-        {
-          key: 0,
-          src_ip: 'https://developer.wgine.com',
-          dest_ip: 'http://localhost:3000',
-          enabled: true
-        },
-        {
-          key: 1,
-          src_ip: 'https://developer.wgine.com',
-          dest_ip: 'http://127.0.0.1:3000',
-          enabled: true
-        },
-      ],
+      dataSource: [],
       count: 2,
     };
   }
@@ -181,11 +195,18 @@ export default class EditableTable extends React.Component {
   };
 
   componentDidMount() {
-    chrome.storage && chrome.storage.sync.get(['key'], (result) => {
+    // 兼容在开发模式下编辑展示
+    if (!chrome.storage) {
       this.setState({
-        dataSource: result.key
+        dataSource: [list]
       })
-    });
+    } else {
+      chrome.storage.sync.get(['key'], (result) => {
+        this.setState({
+          dataSource: result.key || list
+        })
+      });
+    }
   }
 
   render() {

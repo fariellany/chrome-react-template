@@ -4,9 +4,8 @@
 chrome.webRequest.onBeforeRequest.addListener(
 
   function (details) {
-
     chrome.storage.sync.get(['key'], function (result) {
-      console.log(result.key, 'key===>');
+
       if (Array.isArray(result.key) && result.key.length > 0) {
         result.key.forEach((item) => {
           if (item.enabled && details.initiator === item.src_ip) {

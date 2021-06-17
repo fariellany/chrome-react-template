@@ -1,7 +1,7 @@
 {
   "name": "chrome-react-template",
   "version": "1.0.0",
-  "description": "React 17 + Webpack 5 + Manifest V3+ antd4.x +typescript",
+  "description": "chrome cookie proxy",
   "license": "MIT",
   "repository": {
     "type": "git",
