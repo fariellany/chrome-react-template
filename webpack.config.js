@@ -112,6 +112,7 @@ var options = {
     // clean the build folder
     new CleanWebpackPlugin({
       verbose: true,
+      dry: true,
       cleanStaleWebpackAssets: true,
     }),
     // expose and write the allowed env vars on the compiled bundle
