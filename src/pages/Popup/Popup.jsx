@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
+import { Tabs } from 'antd'
+import Table from './Table'
 import './Popup.css';
+import 'antd/dist/antd.css'
+
+const { TabPane } = Tabs;
+
+// 通讯交流
+// https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
 
 const Popup = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
+        <Tabs defaultActiveKey="1" type="card">
+          <TabPane tab="cookie代理" key="1">
+            <Table />
+          </TabPane>
+        </Tabs>
       </header>
     </div>
   );
