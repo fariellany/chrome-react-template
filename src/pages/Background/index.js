@@ -1,6 +1,4 @@
 
-// ? https://blog.csdn.net/weixin_33836874/article/details/86262165
-
 chrome.webRequest.onBeforeRequest.addListener(
 
   function (details) {

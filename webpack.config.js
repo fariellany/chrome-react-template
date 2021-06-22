@@ -38,6 +38,7 @@ var options = {
   entry: {
     popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
     background: path.join(__dirname, 'src', 'pages', 'Background', 'index.js'),
+    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -125,6 +126,15 @@ var options = {
               })
             );
           },
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/pages/Content/content.styles.css',
+          to: path.join(__dirname, 'build'),
+          force: true,
         },
       ],
     }),

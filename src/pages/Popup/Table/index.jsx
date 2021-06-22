@@ -22,24 +22,28 @@ const list = [
     key: 0,
     src_ip: 'https://developer.daily.tuya-inc.cn/',
     dest_ip: 'http://localhost:3000',
+    remark: '日常',
     enabled: false
   },
   {
     key: 1,
     src_ip: 'https://developer.daily.tuya-inc.cn/',
     dest_ip: 'http://127.0.0.1:3000',
+    remark: '日常',
     enabled: false
   },
   {
     key: 2,
     src_ip: 'https://developer.wgine.com',
     dest_ip: 'http://localhost:3000',
+    remark: '预发',
     enabled: true
   },
   {
     key: 3,
     src_ip: 'https://developer.wgine.com',
     dest_ip: 'http://127.0.0.1:3000',
+    remark: '预发',
     enabled: true
   },
 ]
@@ -130,6 +134,11 @@ export default class EditableTable extends React.Component {
         editable: true,
       },
       {
+        title: '备注',
+        dataIndex: 'remark',
+        editable: true,
+      },
+      {
         title: '是否启用',
         dataIndex: 'enabled',
         render: (text, record, index) => (
@@ -166,6 +175,8 @@ export default class EditableTable extends React.Component {
     const dataSource = [...this.state.dataSource];
     this.setState({
       dataSource: dataSource.filter((item) => item.key !== key),
+    }, () => {
+      chrome.storage.sync.set({ key: this.state.dataSource });
     });
   };
 
@@ -203,7 +214,7 @@ export default class EditableTable extends React.Component {
     } else {
       chrome.storage.sync.get(['key'], (result) => {
         this.setState({
-          dataSource: result.key || list
+          dataSource: list
         })
       });
     }

@@ -1,0 +1,42 @@
+.chrome-plugin-label {
+  position: fixed;
+  top: 6px;
+  right: 43px;
+  z-index: 9999;
+  width: 120px;
+  height: 30px;
+  cursor: move;
+  border-radius: 4px;
+  padding: 5px 10px;
+  box-shadow: rgb(0 0 0 / 30%) 0px 1px 3px;
+  background-color: #08979c;
+  font-size: 12px;
+  display: block;
+}
+
+.chrome-plugin-label a {
+  color: #fff;
+}
+
+
+.chrome-plugin-content {
+  position: fixed;
+  right: 0;
+  z-index: 99999;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+  line-height: 80px;
+  height: 80px;
+  background: hsl(216, 100%, 60%);
+  padding: 10px;
+  box-shadow: 0px 0px 10px #002761;
+  border-radius: 3px;
+  color: white;
+}
+
+.chrome-plugin-content h1 {
+  line-height: 30px;
+  font-size: 30px;
+  color: red;
+}
